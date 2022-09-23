@@ -5,19 +5,16 @@ export function botStarted() {
 }
 
 export async function sendMessage(message: any) {
-  if (message.content.includes("!code")) {
-    const [, prompt] = message.content.split("!code ");
+  if (!message.content.startsWith("/code") || message.author.bot) return;
 
-    if (!prompt) {
-      message.reply("Please provide a instruction");
-      return;
-    }
+  const [, prompt] = message.content.split("/code ");
 
-    try {
-      const code = await getCode(prompt);
-      message.reply(code);
-    } catch (error) {
-      return message.reply("Error on generate code");
-    }
+  if (!prompt) return;
+
+  try {
+    const code = await getCode(prompt);
+    message.reply(code);
+  } catch (error) {
+    return message.reply("Error on generate code");
   }
 }
