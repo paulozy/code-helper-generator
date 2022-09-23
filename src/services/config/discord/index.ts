@@ -1,4 +1,5 @@
 import { Client, GatewayIntentBits } from "discord.js";
+import "dotenv/config";
 
 const client = new Client({
   intents: [
@@ -12,4 +13,4 @@ const client = new Client({
 
 client.login(process.env.DISCORD_TOKEN);
 
-export { client };
+export { client as discordClient };

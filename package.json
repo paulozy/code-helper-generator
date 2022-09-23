@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Paulo Abreu <paulo.santana@luby.software>",
   "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/index.ts"
+  },
   "devDependencies": {
     "@types/node": "^18.7.18",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
@@ -21,6 +24,7 @@
   },
   "dependencies": {
     "discord.js": "^14.4.0",
+    "dotenv": "^16.0.2",
     "openai": "^3.0.0"
   }
 }
