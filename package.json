@@ -5,7 +5,9 @@
   "author": "Paulo Abreu <paulo.santana@luby.software>",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/index.ts"
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "devDependencies": {
     "@types/node": "^18.7.18",
