@@ -1,5 +1,4 @@
 import { Client, GatewayIntentBits } from "discord.js";
-import "dotenv/config";
 import { envHelper } from "../../../utils/envHelper";
 
 const DISCORD_TOKEN = envHelper.discordToken;
