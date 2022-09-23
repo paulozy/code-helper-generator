@@ -1,4 +1,4 @@
-import { openai, searchParameters } from "../services/config/openai";
+import { openai, searchParameters } from "../shared/services/config/openai";
 
 export async function getCode(prompt: string): Promise<string | undefined> {
   try {
