@@ -1,7 +1,7 @@
 {
   "name": "code-helper",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Paulo Abreu <paulo.santana@luby.software>",
   "license": "MIT",
   "scripts": {
