@@ -1,8 +1,10 @@
-import "dotenv/config";
 import { Configuration, OpenAIApi } from "openai";
+import { envHelper } from "../../../utils/envHelper";
+
+const OPENAI_API_KEY = envHelper.openaiKey;
 
 const config = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: OPENAI_API_KEY,
 });
 
 export const openai = new OpenAIApi(config);
