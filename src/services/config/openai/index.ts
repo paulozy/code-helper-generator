@@ -7,4 +7,12 @@ const config = new Configuration({
   apiKey: OPENAI_API_KEY,
 });
 
-export const openai = new OpenAIApi(config);
+const openai = new OpenAIApi(config);
+
+const searchParameters = {
+  model: "text-davinci-002",
+  temperature: 0.9,
+  max_tokens: 200,
+};
+
+export { openai, searchParameters };

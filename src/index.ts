@@ -1,5 +1,5 @@
 import { discordClient } from "./services/config/discord";
-import { openai } from "./services/config/openai";
+import { openai, searchParameters } from "./services/config/openai";
 
 discordClient.on("ready", () => {
   console.log("Discord bot is ready");
@@ -16,10 +16,8 @@ discordClient.on("messageCreate", async (message: any) => {
 async function getCode(prompt: string): Promise<string | undefined> {
   try {
     const result = await openai.createCompletion({
-      model: "text-davinci-002",
-      prompt: prompt,
-      temperature: 0.9,
-      max_tokens: 200,
+      ...searchParameters,
+      prompt,
     });
 
     if (!result.data.choices) {
