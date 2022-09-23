@@ -8,6 +8,11 @@ export async function sendMessage(message: any) {
   if (message.content.includes("!code")) {
     const [, prompt] = message.content.split("!code ");
 
+    if (!prompt) {
+      message.reply("Please provide a instruction");
+      return;
+    }
+
     try {
       const code = await getCode(prompt);
       message.reply(code);
