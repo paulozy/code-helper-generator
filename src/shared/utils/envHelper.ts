@@ -1,6 +1,11 @@
 import "dotenv/config";
 
+const discordToken = process.env.DISCORD_TOKEN;
+const openaiKey = process.env.OPENAI_TOKEN;
+const port = process.env.PORT;
+
 export const envHelper = {
-  discordToken: process.env.DISCORD_TOKEN,
-  openaiKey: process.env.OPENAI_TOKEN,
+  discordToken,
+  openaiKey,
+  port,
 };

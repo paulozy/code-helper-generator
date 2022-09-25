@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add @types/openai -D
+  /usr/local/bin/node /usr/local/bin/yarn add express
 
 PATH: 
   /home/opaulinhof/.vscode-server/bin/74b1f979648cc44d385a2286793c226e611f59e7/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Microsoft VS Code/bin:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Go/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Paulinho/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/Paulinho/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/Paulinho/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Paulinho/AppData/Roaming/npm:/mnt/c/Users/Paulinho/AppData/Local/Programs/Hyper/resources/bin:/mnt/c/Users/Paulinho/go/bin
@@ -14,25 +14,21 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fopenai: Not found
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66145:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
-      at Request.emit (node:events:527:28)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141862:10)
-      at Request.emit (node:events:527:28)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141784:12)
-      at Object.onceWrapper (node:events:641:28)
-      at IncomingMessage.emit (node:events:539:35)
-      at endReadableNT (node:internal/streams/readable:1345:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:71:26)
 
 npm manifest: 
   {
     "name": "code-helper",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "dist/index.js",
     "author": "Paulo Abreu <paulo.santana@luby.software>",
     "license": "MIT",
+    "scripts": {
+      "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/index.ts",
+      "build": "tsc",
+      "start": "node dist/index.js"
+    },
     "devDependencies": {
       "@types/node": "^18.7.18",
       "@typescript-eslint/eslint-plugin": "^5.38.0",
@@ -50,6 +46,7 @@ npm manifest:
     },
     "dependencies": {
       "discord.js": "^14.4.0",
+      "dotenv": "^16.0.2",
       "openai": "^3.0.0"
     }
   }
@@ -636,6 +633,11 @@ Lockfile:
     integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
     dependencies:
       esutils "^2.0.2"
+  
+  dotenv@^16.0.2:
+    version "16.0.2"
+    resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.2.tgz#0b0f8652c016a3858ef795024508cddc4bffc5bf"
+    integrity sha512-JvpYKUmzQhYoIFgK2MOnF3bciIZoItIIoryihy0rIA+H4Jy0FmgyKYAHCTN98P5ybGSJcIFbh6QKeJdtZd1qhA==
   
   dynamic-dedupe@^0.3.0:
     version "0.3.0"

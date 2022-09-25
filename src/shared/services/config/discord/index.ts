@@ -13,6 +13,8 @@ const client = new Client({
   ],
 });
 
+const prefix = "code!";
+
 client.login(DISCORD_TOKEN);
 
-export { client as discordClient };
+export { client as discordClient, prefix };
