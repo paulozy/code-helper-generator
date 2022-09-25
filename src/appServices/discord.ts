@@ -14,6 +14,7 @@ export async function sendMessage(message: any) {
     const commandFile = require(`../commands/${command}.ts`);
     commandFile.execute({ args, message });
   } catch (error) {
+    console.log(error);
     return message.reply("I don't understand this command");
   }
 }

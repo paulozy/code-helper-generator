@@ -5,7 +5,7 @@ interface IExecute {
   args: any;
 }
 
-export async function execute({ args, message }: IExecute) {
+async function execute({ args, message }: IExecute) {
   const prompt = args.join(" ");
 
   if (!prompt) return;
@@ -13,3 +13,10 @@ export async function execute({ args, message }: IExecute) {
 
   message.reply(code);
 }
+
+const commandInfo = {
+  name: "Generate",
+  description: "This command generate a code with base in the phrase received",
+};
+
+export { execute, commandInfo };
